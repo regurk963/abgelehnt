@@ -1,0 +1,135 @@
+/* abgelehnt! — legal & support site
+   Signature: the red rubber-stamp wordmark. Everything else stays quiet. */
+
+:root{
+  --bg:#f6f1e9;
+  --bg2:#efe7db;
+  --card:#ffffff;
+  --ink:#20242e;
+  --muted:#6b7280;
+  --primary:#2f6fed;
+  --primary-ink:#1f57c4;
+  --accent:#d83a34;
+  --border:#eadfce;
+  --shadow:0 10px 30px rgba(40,40,60,.07);
+  --shadow-sm:0 4px 14px rgba(40,40,60,.06);
+  --ring:rgba(47,111,237,.4);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#14161c; --bg2:#191c24; --card:#1e222b;
+    --ink:#e8eaf0; --muted:#9aa3b2;
+    --primary:#6ea0ff; --primary-ink:#9dbcff; --accent:#ff6b63;
+    --border:#2a2f3a;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --shadow-sm:0 4px 14px rgba(0,0,0,.3);
+    --ring:rgba(110,160,255,.5);
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.68; font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---- Stamp wordmark (the signature) ---- */
+.stamp{
+  display:inline-block; font-weight:800; color:var(--accent);
+  letter-spacing:.01em; line-height:1; text-decoration:none;
+  border:3px solid var(--accent); border-radius:12px;
+  padding:.22em .5em .28em;
+  box-shadow:inset 0 0 0 1px var(--accent);
+  transform:rotate(-3deg); transform-origin:center;
+}
+.stamp .b{color:var(--accent)}
+a.stamp:hover{text-decoration:none; transform:rotate(-3deg) scale(1.02)}
+@media (prefers-reduced-motion:reduce){ a.stamp:hover{transform:rotate(-3deg)} }
+
+/* ---- Top bar ---- */
+.topbar{
+  background:var(--bg2); border-bottom:1px solid var(--border);
+}
+.topbar .inner{
+  max-width:760px; margin:0 auto; padding:14px 20px;
+  display:flex; align-items:center; gap:12px;
+}
+.topbar .mark{
+  font-weight:800; color:var(--accent); text-decoration:none;
+  font-size:1.05rem; letter-spacing:.01em;
+  border:2px solid var(--accent); border-radius:9px; padding:.1em .45em .16em;
+  transform:rotate(-3deg);
+}
+.topbar .mark:hover{text-decoration:none}
+
+/* ---- Layout ---- */
+.wrap{max-width:760px; margin:0 auto; padding:28px 20px 72px}
+.card{
+  position:relative; background:var(--card); border:1px solid var(--border);
+  border-radius:20px; box-shadow:var(--shadow); padding:34px 30px;
+  overflow:hidden;
+}
+.card::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:4px;
+  background:linear-gradient(90deg,var(--accent),var(--primary));
+}
+
+/* ---- Type ---- */
+h1{font-size:1.85rem; line-height:1.2; margin:6px 0 4px; letter-spacing:-.4px}
+h2{font-size:1.22rem; margin:34px 0 8px; letter-spacing:-.2px}
+h3{font-size:1.03rem; margin:22px 0 6px; color:var(--ink)}
+p,li{color:var(--ink)}
+a{color:var(--primary); text-decoration:none}
+a:hover{color:var(--primary-ink); text-decoration:underline}
+strong{color:var(--ink)}
+.muted{color:var(--muted)}
+.meta{color:var(--muted); font-size:.96rem; margin:0 0 8px; line-height:1.55}
+hr{border:none; border-top:1px solid var(--border); margin:28px 0}
+
+/* language pill (doc pages) */
+.lang{
+  position:absolute; top:22px; right:22px;
+  background:var(--bg2); color:var(--primary); border:1px solid var(--border);
+  border-radius:999px; padding:5px 12px; font-size:.86rem; font-weight:600;
+  text-decoration:none;
+}
+.lang:hover{text-decoration:none; border-color:var(--primary)}
+
+/* callout */
+.callout{
+  background:color-mix(in srgb, var(--primary) 8%, var(--card));
+  border:1px solid color-mix(in srgb, var(--primary) 26%, var(--border));
+  border-radius:14px; padding:15px 17px; margin:18px 0;
+}
+
+/* ---- Landing ---- */
+.hero{text-align:center; padding:14px 0 6px}
+.hero .stamp{font-size:2.4rem; margin-bottom:14px}
+.hero .tagline{color:var(--muted); font-size:1.05rem; margin:6px 0 2px}
+.section-label{
+  font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin:26px 0 12px;
+}
+.tiles{display:grid; gap:12px}
+@media (min-width:600px){ .tiles{grid-template-columns:1fr 1fr 1fr} }
+.tile{
+  display:block; background:var(--card); border:1px solid var(--border);
+  border-radius:14px; padding:18px; box-shadow:var(--shadow-sm);
+  text-decoration:none; transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.tile:hover{transform:translateY(-3px); border-color:var(--primary); box-shadow:var(--shadow); text-decoration:none}
+.tile .ico{font-size:1.4rem}
+.tile b{display:block; margin:8px 0 3px; font-size:1.02rem; color:var(--ink)}
+.tile span{color:var(--muted); font-size:.9rem}
+.center{text-align:center}
+
+/* ---- Footer ---- */
+footer{color:var(--muted); font-size:.9rem; margin-top:32px; line-height:1.9}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--primary)}
+
+/* ---- a11y ---- */
+a:focus-visible,.tile:focus-visible{outline:3px solid var(--ring); outline-offset:3px; border-radius:8px}
